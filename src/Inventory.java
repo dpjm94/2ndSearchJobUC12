@@ -9,10 +9,9 @@ public class Inventory {
 
     private final List categorys;
 
-    public Inventory(List<Category>categorys){
-        this.categorys = categorys;
+    public Inventory(){
 
-        //category = new LinkedList();
+        categorys = new LinkedList();
     }
 
     public void addCategory(String categoryNo, double age, CategorySpec spec){
@@ -30,36 +29,32 @@ public class Inventory {
         return null;
     }
 
-    public Category search(CategorySpec searchCategory){
+    public List search(CategorySpec searchSpec){
+        List matchingCategorys = new LinkedList();
         for(Iterator i = categorys.iterator(); i.hasNext();){
             Category category = (Category)i.next();
             CategorySpec categorySpec = category.getSpec();
 
-            if(searchCategory.getAgeType() != categorySpec.getAgeType())
+            if(searchSpec.getAgeType() != categorySpec.getAgeType())
                 continue;
 
-            EmployType employType = searchCategory.getEmployType();
-            if((employType != null) &&
-                    (!employType.equals(category.getEmployType())))
+            if(searchSpec.getJobType() != categorySpec.getJobType())
                 continue;
 
-            JobType jobType = searchCategory.getJobType();
-            if((jobType != null) &&
-                    (!jobType.equals(category.getJobType())))
+            if(searchSpec.getEmployType() != categorySpec.getEmployType())
                 continue;
 
-            Location location = searchCategory.getLocation();
-            if((location != null) &&
-                    (!location.equals(category.getLocation())))
+            if(searchSpec.getLocation() != categorySpec.getLocation())
                 continue;
 
-            Boolean jobStatus = searchCategory.isJobStatus();
-            if((jobStatus != null) &&
-                    (!jobStatus.equals(category.isJobStatus())))
-                continue;
+            Boolean jobStatus = searchSpec.isJobStatus();
+            if((jobStatus != null) && (!jobStatus.equals("")) &&
+                    (!jobStatus.equals(categorySpec.isJobStatus())))
+            continue;
+            matchingCategorys.add(category);
         }
 
-        return null;
+        return matchingCategorys;
 
     }
 }
