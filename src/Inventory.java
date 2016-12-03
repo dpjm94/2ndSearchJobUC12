@@ -33,24 +33,7 @@ public class Inventory {
         List matchingCategorys = new LinkedList();
         for(Iterator i = categorys.iterator(); i.hasNext();){
             Category category = (Category)i.next();
-            CategorySpec categorySpec = category.getSpec();
-
-            if(searchSpec.getAgeType() != categorySpec.getAgeType())
-                continue;
-
-            if(searchSpec.getJobType() != categorySpec.getJobType())
-                continue;
-
-            if(searchSpec.getEmployType() != categorySpec.getEmployType())
-                continue;
-
-            if(searchSpec.getLocation() != categorySpec.getLocation())
-                continue;
-
-            Boolean jobStatus = searchSpec.isJobStatus();
-            if((jobStatus != null) && (!jobStatus.equals("")) &&
-                    (!jobStatus.equals(categorySpec.isJobStatus())))
-            continue;
+            if(category.getSpec().matches(searchSpec))
             matchingCategorys.add(category);
         }
 

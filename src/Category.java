@@ -2,12 +2,13 @@
 public class Category {
     private final String categoryNo;
     private final double age;
-    private CategorySpec spec;
+    private final CategorySpec spec;
 
 
     public Category(String categoryNo, double age, CategorySpec spec) {
         this.categoryNo = categoryNo;
         this.age = age;
+        this.spec = spec;
     }
 
 

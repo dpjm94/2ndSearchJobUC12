@@ -3,7 +3,7 @@ public class CategorySpec {
     private final AgeType ageType;
     private final EmployType employType;
     private final JobType jobType;
-    private final Location Location;
+    private final Location location;
     private final boolean jobStatus;
 
 
@@ -11,7 +11,7 @@ public class CategorySpec {
         this.ageType = ageType;
         this.employType = employType;
         this.jobType = jobType;
-        Location = location;
+        this.location = location;
         this.jobStatus = jobStatus;
     }
 
@@ -28,10 +28,24 @@ public class CategorySpec {
     }
 
     public Location getLocation() {
-        return Location;
+        return location;
     }
 
     public boolean isJobStatus() {
         return jobStatus;
+    }
+
+    public boolean matches(CategorySpec otherSpec) {
+        if (jobType != otherSpec.jobType)
+            return false;
+        if (employType != otherSpec.employType)
+            return false;
+        if (location != otherSpec.location)
+            return false;
+        if (ageType != otherSpec.ageType)
+            return false;
+        if (jobStatus!= otherSpec.jobStatus)
+            return false;
+        return true;
     }
 }
