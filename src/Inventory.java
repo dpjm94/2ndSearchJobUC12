@@ -7,10 +7,12 @@ import java.util.List;
  */
 public class Inventory {
 
-    private List categorys;
+    private final List categorys;
 
-    public Inventory(){
-        categorys = new LinkedList();
+    public Inventory(List<Category>categorys){
+        this.categorys = categorys;
+
+        //category = new LinkedList();
     }
 
     public void addCategory(String categoryNo, double age, AgeType ageType, EmployType employType, JobType jobType, Location location, boolean jobStatus){

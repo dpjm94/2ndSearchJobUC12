@@ -23,7 +23,7 @@ public class FindCategoryTester {
     }
     private static void dataInventory(Inventory inventory){
 
-        inventory.addCategory("", 20, "Adult", "PartTime", "Accounting", "Dublin", true);
+        inventory.addCategory("", 20, AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
     }
 
 }

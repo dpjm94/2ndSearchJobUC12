@@ -1,12 +1,12 @@
 
 public class Category {
-    private String categoryNo;
-    private AgeType ageType;
-    private double age;
-    private EmployType employType;
-    private JobType jobType;
-    private Location Location;
-    private boolean jobStatus;
+    private final String categoryNo;
+    private final AgeType ageType;
+    private final double age;
+    private final EmployType employType;
+    private final JobType jobType;
+    private final Location Location;
+    private final boolean jobStatus;
 
 
     public Category(String categoryNo, double age, AgeType ageType, EmployType employType, JobType jobType, Location location, boolean jobStatus) {
@@ -33,9 +33,9 @@ public class Category {
         return age;
     }
 
-    public void setAge(double age) {
+   /* public void setAge(double age) {
         this.age = age;
-    }
+    }*/
 
 
     public EmployType getEmployType() {
