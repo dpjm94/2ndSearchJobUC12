@@ -46,6 +46,16 @@ public class Inventory {
             if((jobType != null) && (!jobType.equals("")) &&
                     (!jobType.equals(category.getJobType())))
                 continue;
+
+            String location = searchCategory.getLocation();
+            if((location != null) && (!location.equals("")) &&
+                    (!location.equals(category.getLocation())))
+                continue;
+
+            Boolean jobStatus = searchCategory.isJobStatus();
+            if((jobStatus != null) && (!jobStatus.equals("")) &&
+                    (!jobStatus.equals(category.isJobStatus())))
+                continue;
         }
 
         return null;
