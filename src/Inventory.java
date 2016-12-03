@@ -15,8 +15,8 @@ public class Inventory {
         //category = new LinkedList();
     }
 
-    public void addCategory(String categoryNo, double age, AgeType ageType, EmployType employType, JobType jobType, Location location, boolean jobStatus){
-        Category category = new Category(categoryNo, age, ageType, employType,jobType,location,jobStatus);
+    public void addCategory(String categoryNo, double age, CategorySpec spec){
+        Category category = new Category(categoryNo, age, spec);
         categorys.add(category);
     }
 
@@ -30,13 +30,12 @@ public class Inventory {
         return null;
     }
 
-    public Category search(Category searchCategory){
+    public Category search(CategorySpec searchCategory){
         for(Iterator i = categorys.iterator(); i.hasNext();){
             Category category = (Category)i.next();
+            CategorySpec categorySpec = category.getSpec();
 
-            AgeType ageType = searchCategory.getAgeType();
-            if((ageType != null) &&
-                    (!ageType.equals(category.getAgeType())))
+            if(searchCategory.getAgeType() != categorySpec.getAgeType())
                 continue;
 
             EmployType employType = searchCategory.getEmployType();

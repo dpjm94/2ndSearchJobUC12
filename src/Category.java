@@ -1,23 +1,13 @@
 
 public class Category {
     private final String categoryNo;
-    private final AgeType ageType;
     private final double age;
-    private final EmployType employType;
-    private final JobType jobType;
-    private final Location Location;
-    private final boolean jobStatus;
+    private CategorySpec spec;
 
 
-    public Category(String categoryNo, double age, AgeType ageType, EmployType employType, JobType jobType, Location location, boolean jobStatus) {
+    public Category(String categoryNo, double age, CategorySpec spec) {
         this.categoryNo = categoryNo;
-        this.ageType = ageType;
         this.age = age;
-        this.employType = employType;
-        this.jobType = jobType;
-        Location = location;
-        this.jobStatus = jobStatus;
-
     }
 
 
@@ -25,9 +15,6 @@ public class Category {
         return categoryNo;
     }
 
-    public AgeType getAgeType() {
-        return ageType;
-    }
 
     public double getAge() {
         return age;
@@ -37,20 +24,7 @@ public class Category {
         this.age = age;
     }*/
 
-
-    public EmployType getEmployType() {
-        return employType;
-    }
-
-    public JobType getJobType() {
-        return jobType;
-    }
-
-    public Location getLocation() {
-        return Location;
-    }
-
-    public boolean isJobStatus() {
-        return jobStatus;
-    }
+   public CategorySpec getSpec(){
+       return spec;
+   }
 }

@@ -7,7 +7,7 @@ public class FindCategoryTester {
         Inventory inventory = new Inventory();
         dataInventory(inventory);
 
-        Category whatUserWants = new Category("", 20, AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
+        CategorySpec whatUserWants = new CategorySpec(AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
 
         Category category = inventory.search(whatUserWants);
 
@@ -23,7 +23,7 @@ public class FindCategoryTester {
     }
     private static void dataInventory(Inventory inventory){
 
-        inventory.addCategory("", 20, AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
+        inventory.addCategory(AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
     }
 
 }
