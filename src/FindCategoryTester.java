@@ -7,7 +7,7 @@ public class FindCategoryTester {
         Inventory inventory = new Inventory();
         dataInventory(inventory);
 
-        Category whatUserWants = new Category("", 20, "Adult", "partTime", "Accounting", "Dublin", true);
+        Category whatUserWants = new Category("", 20, AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
 
         Category category = inventory.search(whatUserWants);
 

@@ -1,15 +1,15 @@
 
 public class Category {
     private String categoryNo;
-    private String ageType;
+    private AgeType ageType;
     private double age;
-    private String employType;
-    private String jobType;
-    private String Location;
+    private EmployType employType;
+    private JobType jobType;
+    private Location Location;
     private boolean jobStatus;
 
 
-    public Category(String categoryNo, double age, String ageType,String employType, String jobType, String location, boolean jobStatus) {
+    public Category(String categoryNo, double age, AgeType ageType, EmployType employType, JobType jobType, Location location, boolean jobStatus) {
         this.categoryNo = categoryNo;
         this.ageType = ageType;
         this.age = age;
@@ -25,7 +25,7 @@ public class Category {
         return categoryNo;
     }
 
-    public String getAgeType() {
+    public AgeType getAgeType() {
         return ageType;
     }
 
@@ -38,15 +38,15 @@ public class Category {
     }
 
 
-    public String getEmployType() {
+    public EmployType getEmployType() {
         return employType;
     }
 
-    public String getJobType() {
+    public JobType getJobType() {
         return jobType;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return Location;
     }
 

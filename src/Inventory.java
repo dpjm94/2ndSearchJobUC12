@@ -13,8 +13,8 @@ public class Inventory {
         categorys = new LinkedList();
     }
 
-    public void addCategory(String categoryNo, double age, String ageType,  String employType,String jobType, String location, boolean jobStatus){
-        Category category = new Category(categoryNo,age, ageType, employType,jobType,location,jobStatus);
+    public void addCategory(String categoryNo, double age, AgeType ageType, EmployType employType, JobType jobType, Location location, boolean jobStatus){
+        Category category = new Category(categoryNo, age, ageType, employType,jobType,location,jobStatus);
         categorys.add(category);
     }
 
@@ -32,28 +32,28 @@ public class Inventory {
         for(Iterator i = categorys.iterator(); i.hasNext();){
             Category category = (Category)i.next();
 
-            String ageType = searchCategory.getAgeType();
-            if((ageType != null) && (!ageType.equals("")) &&
+            AgeType ageType = searchCategory.getAgeType();
+            if((ageType != null) &&
                     (!ageType.equals(category.getAgeType())))
                 continue;
 
-            String employType = searchCategory.getEmployType();
-            if((employType != null) && (!employType.equals("")) &&
+            EmployType employType = searchCategory.getEmployType();
+            if((employType != null) &&
                     (!employType.equals(category.getEmployType())))
                 continue;
 
-            String jobType = searchCategory.getJobType();
-            if((jobType != null) && (!jobType.equals("")) &&
+            JobType jobType = searchCategory.getJobType();
+            if((jobType != null) &&
                     (!jobType.equals(category.getJobType())))
                 continue;
 
-            String location = searchCategory.getLocation();
-            if((location != null) && (!location.equals("")) &&
+            Location location = searchCategory.getLocation();
+            if((location != null) &&
                     (!location.equals(category.getLocation())))
                 continue;
 
             Boolean jobStatus = searchCategory.isJobStatus();
-            if((jobStatus != null) && (!jobStatus.equals("")) &&
+            if((jobStatus != null) &&
                     (!jobStatus.equals(category.isJobStatus())))
                 continue;
         }
