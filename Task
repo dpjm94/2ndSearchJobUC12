@@ -1,0 +1,66 @@
+Principles (See back of book!):
+-- Encapsulation: Item - SpecificItem (Encapsulate what varies) +
+-- Loose Coupling,
+-- High Cohesion
+-- Principle of Least Knowledge - move comparision of GuitarSpec object to GuitarSpec
+-- Program to an Interface, not an implementation
+-- DIY: The object with the information should have the behaviour (A Dice should be able to roll() itself!, A GuitarSpec object should be able to say whether it is identical to another GuitarSSpec object or not!)
+-- DRY(pg 382): Don't Repeat Yourself
+-- SRP(pg 390): Single Responsibility Principle
+-- OCP(pg 377): A class should be open for extension but closed for modification
+NOTE: Understand the motivating reasons for using the principles, and be able to demonstrate code that violates/complies
+
+
+Code Analysis
+-- Minimise accessibility to methods & fields (public vs. package-private)
+-- Immutability of fields (no getter/use 'final')
+-- Consider target jvm version (use of Enum, generics, foreach, etc)
+-- Use of generics (Typed collections)
+-- Program to interface not an implementation
+-- Use of dependency injection
+-- Automate testing
+-- Use of designated 'test' folder
+-- Type Migration refactoring
+
+Code Smells (see sourcemaking.com)
+-- Inappropriate intimacy/Feature envy
+-- Temporary Variable
+-- Shotgun Surgery
+-- Comment
+
+Refactoring
+-- Refactor>Extract Method in the search method: model != null && !model.equals("") --> isSpecified()
+-- Refactor>Type Migration when introducing Enums
+-- Split declarations (avoid multiple variable declarations on a single line)
+-- fori vs. foreach (remove temporary variable, enforce type safety)
+NOTE: Be able to consider principles, code smells etc when evaluation design decisions!
+
+Testing
+-- assertEquals(str1,str2) vs. assertTrue(str1.equals(str2)
+-- str.equals() vs. str.equalsIgnoreCase()
+-- using static import for org.junit.Assert's methods
+
+Design
+-- Encapsulation of GuitarSpec
+-- Value Safety ("fender" vs. "Fender")
+-- Type Safety (List guitar vs. List <Guitar> guitars)
+-- Dependency Injection - Prog to Interface, not an Impl - public Inventory(List<Guitar> guitars)
+
+
+Version Control.
+Have you ...
+-- initialised your git repository (git init) ?
+-- added intellij configuration files to the .ignorlist file?
+-- made an initial commit?
+-- written a good message that says why changes were made and given a brief description of the changes?
+-- considered tagging or branching?
+-- made multiple commits of intermediary working code.
+
+Questions:
+- What are the pros/cons of removing the GuitarSpec's accessors from the Guitar class when doing Refactor>Extract>Delegate.
+- You should be able to answer questions on all of the above, e.g.
+--- What criteria would you consider when trying to decide whether a field should be immutable or not.
+--- A class declares a collection as follows: List<Student> students = new ArrayList<>();, is this an example of dependency injection or not? Why why not?
+--- What are the problems with multiple variable declarations on a single line
+--- What is wrong with temporary variables
+--- What is the problem with comments ... why are comments considered a code smell?
