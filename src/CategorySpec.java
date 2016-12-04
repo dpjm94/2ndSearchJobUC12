@@ -1,5 +1,5 @@
 
-public class CategorySpec {
+public class CategorySpec extends JobSpec {
     private final AgeType ageType;
     private final EmployType employType;
     private final JobType jobType;

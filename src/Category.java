@@ -1,5 +1,5 @@
 
-public class Category {
+public class Category extends Job {
     private final String categoryNo;
     private final double age;
     private final CategorySpec spec;
