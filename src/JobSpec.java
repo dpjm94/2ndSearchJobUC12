@@ -1,47 +1,38 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  * Created by donalmaher on 04/12/2016.
  */
 public abstract class JobSpec {
-    private final AgeType ageType;
-    private final EmployType employType;
-    private final JobType jobType;
-    private final Location location;
+    private Map properties;
 
-
-    public JobSpec(AgeType ageType, EmployType employType, JobType jobType, Location location) {
-        this.ageType = ageType;
-        this.employType = employType;
-        this.jobType = jobType;
-        this.location = location;
-
+    public JobSpec(Map properties){
+        if(properties == null){
+            this.properties = new HashMap();
+        }else{
+            this.properties = new HashMap(properties);
+        }
     }
 
-    public AgeType getAgeType() {
-        return ageType;
+    public Object getProperty(String propertyName){
+        return properties.get(propertyName);
     }
 
-    public EmployType getEmployType() {
-        return employType;
+    public Map getProperties(){
+        return properties;
     }
-
-    public JobType getJobType() {
-        return jobType;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
 
     public boolean matches(JobSpec otherSpec) {
-        if (jobType != otherSpec.jobType)
-            return false;
-        if (employType != otherSpec.employType)
-            return false;
-        if (location != otherSpec.location)
-            return false;
-        if (ageType != otherSpec.ageType)
-            return false;
+        for(Iterator i = otherSpec.getProperties().keySet().iterator();
+            i.hasNext();) {
+            String propertyName = (String)i.next();
+            if(!properties.get(propertyName).equals(
+                    otherSpec.getProperty(propertyName))){
+                return false;
+            }
+        }
         return true;
     }
 }
