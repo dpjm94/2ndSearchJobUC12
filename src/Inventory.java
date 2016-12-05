@@ -7,23 +7,26 @@ import java.util.List;
  */
 public class Inventory {
 
-    private final List categorys;
+    private final List jobs;
 
     public Inventory(){
 
-        categorys = new LinkedList();
+        jobs = new LinkedList();
     }
 
-    public void addCategory(String categoryNo, double age, CategorySpec spec){
-        Category category = new Category(categoryNo, age, spec);
-        categorys.add(category);
+    public void addJob(String categoryNo, double age, JobSpec spec){
+        Job job = null;
+        if(spec instanceof CategorySpec){
+            job = new Category(categoryNo,age,(CategorySpec)spec);
+        }
+        jobs.add(job);
     }
 
-    public Category getCategory(String categoryNo){
-        for(Iterator i = categorys.iterator(); i.hasNext();){
-            Category category = (Category)i.next();
-            if(category.getCategoryNo().equals(categoryNo)){
-               return category;
+    public Job getJob(String categoryNo){
+        for(Iterator i = jobs.iterator(); i.hasNext();){
+            Job job = (Job)i.next();
+            if(job.getCategoryNo().equals(categoryNo)){
+               return job;
             }
         }
         return null;
@@ -31,7 +34,7 @@ public class Inventory {
 
     public List search(CategorySpec searchSpec){
         List matchingCategorys = new LinkedList();
-        for(Iterator i = categorys.iterator(); i.hasNext();){
+        for(Iterator i = jobs.iterator(); i.hasNext();){
             Category category = (Category)i.next();
             if(category.getSpec().matches(searchSpec))
             matchingCategorys.add(category);
