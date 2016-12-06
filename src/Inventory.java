@@ -2,9 +2,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by donalmaher on 03/12/2016.
- */
 public class Inventory {
 
     private final List inventory;

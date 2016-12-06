@@ -1,5 +1,7 @@
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class FindCategoryTester {
 
@@ -9,21 +11,31 @@ public class FindCategoryTester {
         Inventory inventory = new Inventory();
         dataInventory(inventory);
 
-        CategorySpec whatUserWants = new CategorySpec(AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true);
 
+        Map properties = new HashMap();
 
-        List matchingJobs = inventory.search(whatUserWants);
+        properties.put("location",Location.KERRY);
+        JobSpec jobSpec;
+        jobSpec = new JobSpec(properties);
+
+        List matchingJobs = inventory.search(jobSpec);
 
         if (matchingJobs != null) {
             System.out.println("User, you might be interested these ");
 
             for(Iterator i = matchingJobs.iterator(); i.hasNext();){
-                Category category = (Category)i.next();
-                JobSpec spec = category.getSpec();
-                System.out.println("\n We have a " + spec.getJobType() + " in " +
-                        spec.getLocation() + " and \n Employee Type of the job is : " + spec.getEmployType() + "\n Age type they are looking for: "
-                        + spec.getAgeType());
-
+                Job job = (Job)i.next();
+                JobSpec spec = job.getSpec();
+                System.out.println("\n We have a " + spec.getProperty("employType") +
+                        "with the following jobs: ");
+                for(Iterator p = spec.getProperties().keySet().iterator();
+                        p.hasNext();){
+                    String propertyName = (String) p.next();
+                    if(propertyName.equals("employType"))
+                        continue;
+                    System.out.println("  " + propertyName + ": " +
+                    spec.getProperty(propertyName));
+                }
                 //+ " \n Available Status Job: " + spec.isJobStatus());
             }
         } else {
@@ -33,12 +45,20 @@ public class FindCategoryTester {
     }
     private static void dataInventory(Inventory inventory){
 
-        inventory.addJob("001",32-35,
-                new CategorySpec(AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.ANTRIM, true));
-        inventory.addJob("002",30-40,
-                new CategorySpec(AgeType.ADULT, EmployType.PARTTIME, JobType.ACCOUNTING,Location.DUBLIN, true));
-        inventory.addJob("003",22-26,
-                new CategorySpec(AgeType.STUDENT, EmployType.PERMANENT, JobType.ARCHITECTURE,Location.DUBLIN, true));
+        Map properties = new HashMap();
+        properties.put("category", Category.ACCOUNTING);
+        properties.put("location", Location.KERRY);
+        properties.put("employType", EmployType.PERMANENT);
+        inventory.addJob("01",23-40, new JobSpec(properties));
+
+
+        properties.put("location",Location.KERRY);
+        properties.put("employType",EmployType.PARTTIME);
+        inventory.addJob("02",20-40, new JobSpec(properties));
+
+        properties.put("location",Location.DUBLIN);
+        properties.put("employType",EmployType.PARTTIME);
+        inventory.addJob("03",30-35,new JobSpec(properties));
     }
 
 }

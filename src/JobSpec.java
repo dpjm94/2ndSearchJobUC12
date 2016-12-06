@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Created by donalmaher on 04/12/2016.
  */
-public abstract class JobSpec {
+public class JobSpec {
     private Map properties;
 
     public JobSpec(Map properties){
