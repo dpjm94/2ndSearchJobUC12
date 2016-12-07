@@ -14,6 +14,9 @@ public class FindCategoryTester {
 
         Map properties = new HashMap();
 
+        //User is looking for Permanent Accounting job in Kerry.
+        properties.put("employType",EmployType.PERMANENT);
+        properties.put("category",Category.ACCOUNTING);
         properties.put("location",Location.KERRY);
         JobSpec jobSpec;
         jobSpec = new JobSpec(properties);
@@ -26,8 +29,8 @@ public class FindCategoryTester {
             for(Iterator i = matchingJobs.iterator(); i.hasNext();){
                 Job job = (Job)i.next();
                 JobSpec spec = job.getSpec();
-                System.out.println("\n We have a " + spec.getProperty("employType") +
-                        "with the following jobs: ");
+                System.out.println("\n"+spec.getProperty("employType") + " Job" +
+                        " with the following properties: ");
                 for(Iterator p = spec.getProperties().keySet().iterator();
                         p.hasNext();){
                     String propertyName = (String) p.next();
@@ -36,7 +39,11 @@ public class FindCategoryTester {
                     System.out.println("  " + propertyName + ": " +
                     spec.getProperty(propertyName));
                 }
-                //+ " \n Available Status Job: " + spec.isJobStatus());
+                System.out.println(" \nIf you are interest taking this "
+                                + spec.getProperty("category") + " Job\n" +
+                 " Apply to Employer at " + spec.getProperty("email") + " ASAP " +
+                                "but before on " + spec.getProperty("Expire Date"));
+
             }
         } else {
             System.out.println("Sorry User, we have nothing for you!!!");
@@ -49,6 +56,8 @@ public class FindCategoryTester {
         properties.put("category", Category.ACCOUNTING);
         properties.put("location", Location.KERRY);
         properties.put("employType", EmployType.PERMANENT);
+        properties.put("Expire Date","16th of December 2016");
+        properties.put("email","rejkerj@hotmail.com");
         inventory.addJob("01",23-40, new JobSpec(properties));
 
 

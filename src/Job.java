@@ -1,7 +1,7 @@
 /**
  * Created by donalmaher on 04/12/2016.
  */
-public abstract class Job {
+public class Job {
     private final String categoryNo;
     private final double age;
     private final JobSpec spec;
