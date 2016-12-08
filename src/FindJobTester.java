@@ -44,7 +44,7 @@ public class FindJobTester {
                 }
                 System.out.println(" \nIf you are interest taking this "
                                 + spec.getProperty("category") + " Job\n" +
-                 " Apply to Employer at " + spec.getProperty("email") + " ASAP " +
+                 " Apply to " + spec.getProperty("contact") + " at " + spec.getProperty("email") + " ASAP " +
                                 "but before on " + spec.getProperty("Expire Date"));
 
             }
@@ -59,25 +59,33 @@ public class FindJobTester {
         properties.put("category", Category.ACCOUNTING);
         properties.put("location", Location.KERRY);
         properties.put("employType", EmployType.PERMANENT);
+        properties.put("ageType",AgeType.ADULT);
         properties.put("Expire Date","16th of December 2016");
-        properties.put("email","rejkerj@hotmail.com");
+        properties.put("email","johnP@hotmail.com");
         properties.put("company","Fexco");
-        inventory.addJob("01",23-40, new JobSpec(properties));
+        properties.put("contact","John Cronin");
+        inventory.addJob("01",30-40, new JobSpec(properties));
 
 
         properties.put("category", Category.ARCHITECTURE);
         properties.put("location",Location.KERRY);
         properties.put("employType",EmployType.PARTTIME);
-        properties.put("email","rejj@hotmail.com");
+        properties.put("ageType",AgeType.ADULT);
+        properties.put("email","maryMp@hotmail.com");
+        properties.put("Expire Date","10th of December 2016");
         properties.put("company","Cpl Finance");
-        inventory.addJob("02",20-40, new JobSpec(properties));
+        properties.put("contact","Mary Murphy");
+        inventory.addJob("02",30-40, new JobSpec(properties));
 
         properties.put("category", Category.ACCOUNTING);
         properties.put("location",Location.DUBLIN);
         properties.put("employType",EmployType.PARTTIME);
-        properties.put("email","rj@hotmail.com");
+        properties.put("ageType",AgeType.STUDENT);
+        properties.put("Expire Date","12th of December 2016");
+        properties.put("email","JohnD@hotmail.com");
         properties.put("company","O'Donoghue");
-        inventory.addJob("03",30-35,new JobSpec(properties));
+        properties.put("contact","John O'Donoghue");
+        inventory.addJob("03",20-25,new JobSpec(properties));
     }
 
 }

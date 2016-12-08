@@ -7,7 +7,7 @@ public enum AgeType {
         switch(this) {
             case ADULT:   return "Adult";
             case STUDENT:   return "Student";
-            default:         return "invalid value";
+            default:         return "invalid age";
         }
     }
 }
