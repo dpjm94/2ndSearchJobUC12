@@ -24,6 +24,7 @@ public class JobSpec {
         return properties;
     }
 
+
     public boolean matches(JobSpec otherSpec) {
         for(Iterator i = otherSpec.getProperties().keySet().iterator();
             i.hasNext();) {

@@ -1,9 +1,10 @@
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class FindCategoryTester {
+public class FindJobTester {
 
     public static void main(String[] args) {
 
@@ -15,9 +16,11 @@ public class FindCategoryTester {
         Map properties = new HashMap();
 
         //User is looking for Permanent Accounting job in Kerry.
-        properties.put("employType",EmployType.PERMANENT);
+
+        JOptionPane.showMessageDialog(null,"Welcome");
+
         properties.put("category",Category.ACCOUNTING);
-        properties.put("location",Location.KERRY);
+
         JobSpec jobSpec;
         jobSpec = new JobSpec(properties);
 
@@ -58,15 +61,22 @@ public class FindCategoryTester {
         properties.put("employType", EmployType.PERMANENT);
         properties.put("Expire Date","16th of December 2016");
         properties.put("email","rejkerj@hotmail.com");
+        properties.put("company","Fexco");
         inventory.addJob("01",23-40, new JobSpec(properties));
 
 
+        properties.put("category", Category.ARCHITECTURE);
         properties.put("location",Location.KERRY);
         properties.put("employType",EmployType.PARTTIME);
+        properties.put("email","rejj@hotmail.com");
+        properties.put("company","Cpl Finance");
         inventory.addJob("02",20-40, new JobSpec(properties));
 
+        properties.put("category", Category.ACCOUNTING);
         properties.put("location",Location.DUBLIN);
         properties.put("employType",EmployType.PARTTIME);
+        properties.put("email","rj@hotmail.com");
+        properties.put("company","O'Donoghue");
         inventory.addJob("03",30-35,new JobSpec(properties));
     }
 
