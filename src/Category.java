@@ -24,7 +24,7 @@ public enum Category {
             case SPORT :     return "Sport";
             case TECHNICAL :     return "Technical";
             case IT: return "IT";
-            default:       return "Unsecified";
+            default:       return "Invalid Job";
 
         }
     }

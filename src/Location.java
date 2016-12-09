@@ -39,7 +39,7 @@ public enum Location {
             case WEXFORD:     return "Wexford";
             case WATERFORD:  return "Waterford";
             case WICKLOW:     return "Wicklow";
-            default:       return "invalid value";
+            default:       return "Invalid Location";
         }
     }
 }
