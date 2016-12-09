@@ -20,6 +20,28 @@ public class JobTest {
         jobSpec = new JobSpec(properties);
         List matchingJobs = inventory.search(jobSpec);
 
+        inventory.addJob("01",34-50,jobSpec);
+        inventory.addJob("02",20-30,jobSpec);
+        Job result = inventory.getJob("01");
+        Job expResult = inventory.getJob("01");
+        assertEquals(expResult,result);
+
+        //jobs is not empty
+        boolean re = matchingJobs.isEmpty();
+        boolean expRes = false;
+
+        matchingJobs.clear();
+
+        re = matchingJobs.isEmpty();
+        expRes = true;
+
+
+        inventory.addJob("01",34-50,jobSpec);
+        inventory.addJob("02",20-30,jobSpec);
+        inventory.addJob("03",20-30,jobSpec);
+
+        re = matchingJobs.contains("01");
+        expRes = true;
 
         int[] numbers = {12,4,3,1};
         int[] expected = {1,3,4,12};
