@@ -1,0 +1,348 @@
+commit 74fe5e743fb50971533179c3942fa5b99a91f27b
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Fri Dec 9 21:31:33 2016 +0000
+
+    2nd Code Analysis
+    
+    Delete the JobType.java
+    file: Location
+    Changed default return "invalid value" to "Invalid Location"
+    
+    file: Category
+    Changed default return "Unsecified" to "Invalid Job"
+    
+    file: EmployType
+    Changed default return "Invalid value" to "Invalid employee type"
+
+commit 7f975941b9bc16ad92cb2082b87cbda189ac0621
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Fri Dec 9 18:23:46 2016 +0000
+
+    Added more tests in JobTest.java
+    
+    testing getJob and addJob
+    testing isEmpty( ) method matchingJobs
+    testing clear( ) method matchingJobs
+    testing contains( ) method
+
+commit f618ceafb415429e91570c6757801cc8e3e537e7
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Fri Dec 9 18:05:35 2016 +0000
+
+    Added JobTest.java
+    
+    Added few examples in JobTest.java
+
+commit 64cbf82d76f30acd53555836acfd70dd23cd2ce9
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Fri Dec 9 13:09:03 2016 +0000
+
+    Added JOptionPane
+    
+    Added 2 new person data
+    Modify the first JOptionPane welcome " + person.getName( )"
+    Added JOptionPane messages
+
+commit 00ed9cb9329045e86b98184247a03c9c2ceabb66
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Fri Dec 9 12:55:23 2016 +0000
+
+    Added Person.java class
+    
+    Added variables
+    Added argument constructor.
+    Added methods.
+
+commit 2f4c409e02cbebde614e8e09bbda8dd53e664f43
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Thu Dec 8 13:14:46 2016 +0000
+
+    Code Review & Code Analysis
+    
+    Following Code Analysis
+    -In Category.java change HR to Human_Resources
+    -in AgeType.java change value to age.
+    
+    Changes following code review
+    changed Employer to spec.getProperty("contact")
+    Added new properties for ageType for each job in dataInventory method.
+    Added new contact property in dataInventory method for name employer sending
+    changed variables age for all three jobs.
+
+commit 5fa213842da52ecf2377d629a85758af49417082
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Thu Dec 8 12:44:19 2016 +0000
+
+    Trying use JOptionPane input in FindJobTester.
+    
+    New Main JobDriver.java
+    Added JFrame, asking user what employee type he want?
+    
+    dataInventory:
+    Added JOptionPane.showMessageDialog message "Welcome";
+    Added extra properties:
+    -company for another jobs
+    -email for another jobs
+
+commit 802d81a4e26c1d27516e96a8a9a8a81f87d99cfc
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Wed Dec 7 11:02:53 2016 +0000
+
+    User wants permanent, Accounting and  Kerry
+    
+    Added properties.put for EmployType in FindJobTester
+    Added properties.put for Category in FindJobTester
+    
+    Few changes in System.out.println
+    Added new System.out.println
+    Added more data in dataInventory method
+    -Expire Date
+    -email
+    
+    Job:
+    Remove abstract
+
+commit e31ae4dcdadf40ff74b258968e5a4127e2336a95
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Tue Dec 6 17:31:53 2016 +0000
+
+    Fix the code in FindCategoryTester
+    
+    FindCategoryTester:
+    Remove CategorySpec whatUserWants.
+    Added Map property, HashMap( ).
+    User looking for any job in kerry location.
+    Rename Category to Job
+    Replaced all reference category to job in for method.
+    In system.out.println replace all specs (getJobType, getLocation, getAgeType) to spec.getProperty("employType")
+    Added new for method for iterator inside first for method to get propertyName
+    Added a three different new Map properties to dataInventory
+    
+    Inventory:
+    Remove comment "Created by donalmaher....."
+    Getting error plan to fix it:
+    To solve problem in FindCategoryTester for
+    jobSpec = new JobSpec(properties); getting  --error--
+    Is to remove JobSpec abstract
+    
+    Category enum class
+    Delete by accident, had to added new enum for Categorys
+
+commit 23e74202aa3e60bc1d6000adc7d4f0685626a21f
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Mon Dec 5 19:37:05 2016 +0000
+
+    Changes in code
+    
+    Remove the Category class
+    Remove the CategorySpec class
+    
+    Inventory:
+    Renamed List jobs to List inventory
+    Rename jobs to inventory
+    
+    In search method:
+    Rename CategorySpec to JobSpec
+    Rename matchingCategorys to matchingJobs
+    Replaced all reference (both type and variable name) to Category to Job and
+      category to job in search method
+
+commit 755634da76afb0d263859eae43adb1f48746e055
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Mon Dec 5 19:18:25 2016 +0000
+
+    Changes in JobSpec >> Adding Map property
+    
+    JobSpec:
+    Remove all types, constructor, and methods
+    Created new private Map properties.
+    Created new constructor for Map
+    Added Object method getProperty( ) in JobSpec
+    Added Map getProperties( )
+    Modified JobSpec matches method
+    New import java.util.Iterator;
+    New import java.util.Map;
+
+commit cee297373e813eee69ed6b6a12bc571d96e93f3c
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Mon Dec 5 18:52:59 2016 +0000
+
+    Pull members up from category to job.
+    
+    Inventory:
+    Rename field categorys to jobs
+    Replaced all reference (both type and variable name) to category to job
+    addJob method modified to deal with both types of job.
+    Renamed job reference to job in Inventory addJob.
+    Rename getCategory to getJob
+    
+    FindCategoryTester:
+    rename matchingCategorys to matchingJobs.
+    Replaced CategorySpec to JobSpec for loop.
+    
+    In FindCategoryTester:
+    -Getting errors - Fix the code
+    Rename addCategory to addJob
+    Comment out "Available Status Job: " + spec.isJobStatus( ).
+
+commit 56ea84b84df0cbfa19f2c6926e2f2e84e2290315
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Mon Dec 5 00:05:33 2016 +0000
+
+    Refactoring of Job class
+    
+    Pulled up all fields from Category class
+    Migrated parameter Category to Job >> (super)
+    
+    --there are problems(errors) in FindCategoryTester!--
+
+commit 5f581d196a2a7a5bac7171d6572d7e4ac570fd37
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sun Dec 4 23:55:53 2016 +0000
+
+    Refactoring of JobSpec
+    
+    Pulled up all fields from CategorySpec <except jobStatus>
+    Migrated parameter CategorySpec to JobSpec
+    Changed CategorySpec call matches( ) to super.matches( )
+    
+    file: Category
+    Renamed CategorySpec to JobSpec (in matches)
+
+commit d385a011aa982fcd6155ff69fb8b3b8e5719891b
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sun Dec 4 23:28:54 2016 +0000
+
+    Preparatory work for new superclasses
+    
+    New classes:
+    Job
+    JobSpec
+    
+    Changes:
+    Category to extend Job
+    CategorySpec extend JobSpec
+    
+    The incomplete classes Job and JobSpec are instantiable
+    Made Job abstract
+    Made JobSpec abstract
+
+commit 5d04ad335f4e0f97c6cd870496cddea0923a2506
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 15:16:04 2016 +0000
+
+    New requirement for CategorySpec
+    
+    Forgot added constructor for Category spec
+    CategorySpec changes:
+    Changed (property) variable Location to location.
+    Added code from search() has been pulled out, put into a matches method in CategorySpec.java
+    Added properties to CategorySpec now requires only a change to that class.
+    
+    FindCategoryTester Changes:
+    Changes with System.out.println()
+    Added more data in dataInventory method in FindCategoryTester.java
+    
+    Inventory Changes:
+    Made the search method lot simpler and easy to read
+
+commit 36debf2a1c13274171f381ae1bcd9a4e1fffd0da
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 14:35:47 2016 +0000
+
+    DIY problem with Inventory search method:
+    
+    Extracted matches method from Inventory search and moved it to CategorySpec
+    
+    FindCategoryTester:
+    Changed instantiations in FindCategoryTester
+    
+    Inventory:
+    Reintroduced generics to categorys collection in Inventory
+    Changed search method header from Category to List > I want to able to return multiple Category objects
+    Changed to searchCategory to searchSpec in header search method.
+    
+    User wants system to find all categorys matching spec
+    Inventory class returns a typesafe collection of matching categorys
+    FindCategoryTester iterates over collection.
+
+commit ae7093320ca16be8093b18be741bffc1681fb379
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 13:28:14 2016 +0000
+
+    Encapsulation problem with Category definition
+    
+    Extracted CategorySpec from Category (Item -- SpecficItem):
+    JobType, Location, AgeType, EmployType and associated migrated to Category class.
+    
+    Type migration for whatUserLike (Category -> CategorySpec)
+    CategorySpec object is instantiated in Category constructor
+    
+    Inventory search changed to search on CategorySpec
+    
+    Coupling issue with CategorySpec -- Category
+    Moved Category instantions in FindCategoryTester
+    Replaced CategorySpec fields in Category Constructor with CategorySpec reference
+    Changed addCategory method in Inventory
+
+commit 18a72b4166a63a6baefa93d48cdd0091a83fbaa4
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 13:09:41 2016 +0000
+
+    Lack of type-safety in collections
+    
+    Following Code Analysis...
+    Introduced generics to categorys collection in Inventory
+    Made category fields final
+    Made categorys collection final in Inventory
+    
+    FindCategoryTester:
+    Changed instantiations in FindCategoryTester.
+
+commit 1d966fa3a5ecb64bd9c30b203c7cbb43d931c9f0
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 12:57:37 2016 +0000
+
+    Value Safety Issues in Category.java
+    
+    New enum classes: JobType, Location, EmployType
+    In Category, type migrations for:
+    JobType, Location, and EmployType
+    Replaced values in Inventory.
+    Changed instantiations in FindCategoryTester
+    Removed empty String checks in Inventory search method
+
+commit 5d4e05a3bb9ed4ddc4b5d5a27479af3bcc2b9592
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 12:32:00 2016 +0000
+
+    Added more properties in search method
+    
+    In search method;
+    Added String location
+    Added boolean jobStatus
+    It compares each property of the Category object it's passed in to each Category object in inventory
+
+commit f753c9dd7e3215b00ff904add0039905a06dd7ee
+Author: Donal Maher <dpjm94@live.ie>
+Date:   Sat Dec 3 12:15:33 2016 +0000
+
+    Initial Commit
+    
+    Category:
+    Added Category class
+    Added 7 properties
+    initial properties for a new Category
+    
+    FindCategoryTester:
+    Added FindCategoryTester class
+    User looking for "PartTime" employType
+        gives message "Sorry User, we have nothing!!!"
+    
+    Inventory:
+    Added inventory class
+    Added private List for categorys
+    Added addCategory to create a new Category
+    Added getCategory
+    Added Category search method = bit of a mess
+         it compares each property of the Category object.
