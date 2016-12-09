@@ -17,11 +17,22 @@ public class FindJobTester {
 
         //User is looking for Permanent Accounting job in Kerry.
 
-        JOptionPane.showMessageDialog(null,"Welcome");
+        Person person = new Person("Donal","Kilcummin","22");
+        Person person1 = new Person("Liam","Killarney","30");
+
+        JOptionPane.showMessageDialog(null,"Welcome " + person.getName());
+
 
         properties.put("category",Category.ACCOUNTING);
+        JOptionPane.showMessageDialog(null,"So " + person.getName() + ", you are looking for Accounting");
+
+        JOptionPane.showMessageDialog(null,"These are the Accounting jobs available on the System below");
+
+
+
 
         JobSpec jobSpec;
+
         jobSpec = new JobSpec(properties);
 
         List matchingJobs = inventory.search(jobSpec);
