@@ -6,31 +6,31 @@ import java.util.Map;
  * Created by donalmaher on 04/12/2016.
  */
 public class JobSpec {
-    private Map properties;
+    private Map interests;
 
-    public JobSpec(Map properties){
-        if(properties == null){
-            this.properties = new HashMap();
+    public JobSpec(Map interests){
+        if(interests == null){
+            this.interests = new HashMap();
         }else{
-            this.properties = new HashMap(properties);
+            this.interests = new HashMap(interests);
         }
     }
 
-    public Object getProperty(String propertyName){
-        return properties.get(propertyName);
+    public Object getInterest(String interestName){
+        return interests.get(interestName);
     }
 
-    public Map getProperties(){
-        return properties;
+    public Map getInterests(){
+        return interests;
     }
 
 
     public boolean matches(JobSpec otherSpec) {
-        for(Iterator i = otherSpec.getProperties().keySet().iterator();
+        for(Iterator i = otherSpec.getInterests().keySet().iterator();
             i.hasNext();) {
-            String propertyName = (String)i.next();
-            if(!properties.get(propertyName).equals(
-                    otherSpec.getProperty(propertyName))){
+            String InterestName = (String)i.next();
+            if(!interests.get(InterestName).equals(
+                    otherSpec.getInterest(InterestName))){
                 return false;
             }
         }
